@@ -3,39 +3,29 @@ using namespace std;
 
 int main() {
 
-    int *a{nullptr};
-    string *b{nullptr};
-
-    int arr[7];
-    string str[5];
-
-    a = arr;
-
-    b = str;
+    int *a = new int[7];
+    string *b = new string[5];
 
     for (int i = 0; i < 7; i++) {
-        *a = i * 2;
-        a++;
+        *(a+i) = i * 2;
+
     }
 
     for (int j = 0; j < 5; j++) {
-        *b = to_string(j);
-        b++;
+        *(b+j) = to_string(j);
+
     }
 
-    for (int k : arr) {
-        cout << k << endl;
+    for (int k = 0; k < 7; k++) {
+        cout << *(a+k) << endl;
     }
 
-    for (string l: str) {
-        cout << l << endl;
+    for (int l = 0; l < 5; l++) {
+        cout << *(b+l) << endl;
     }
 
     delete[] a;
     delete[] b;
-
-    a = nullptr;
-    b = nullptr;
 
     return 0;
 }
